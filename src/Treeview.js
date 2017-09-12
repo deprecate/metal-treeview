@@ -196,4 +196,5 @@ Treeview.STATE = {
 	}
 };
 
+export { Treeview };
 export default Treeview;

@@ -16,9 +16,12 @@
     "test"
   ],
   "scripts": {
+    "build": "npm run soy && webpack",
     "compile": "babel --presets metal -d lib/ src/",
-    "prepublish": "gulp soy && npm run compile",
-    "test": "gulp test"
+    "prepublish": "npm run soy && npm run compile",
+    "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy",
+    "test": "gulp test",
+    "watch": "gulp build:watch"
   },
   "keywords": [
     "metal",
@@ -35,8 +38,18 @@
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-node-env-inline": "^0.2.0",
     "babel-preset-metal": "^4.0.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
     "gulp": "^3.8.11",
-    "gulp-metal": "^1.0.0"
+    "gulp-metal": "^1.0.0",
+    "metal-tools-soy": "^4.2.6",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "sinon": "^1.17.7",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5"
   }
 }
